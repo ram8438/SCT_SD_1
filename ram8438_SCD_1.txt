@@ -1,0 +1,79 @@
+#include <stdio.h>
+
+void celsiusToFahrenheit(double celsius) {
+    double fahrenheit = (celsius * 9 / 5) + 32;
+    printf("%.2f Celsius is %.2f Fahrenheit\n", celsius, fahrenheit);
+}
+
+void celsiusToKelvin(double celsius) {
+    double kelvin = celsius + 273.15;
+    printf("%.2f Celsius is %.2f Kelvin\n", celsius, kelvin);
+}
+
+void fahrenheitToCelsius(double fahrenheit) {
+    double celsius = (fahrenheit - 32) * 5 / 9;
+    printf("%.2f Fahrenheit is %.2f Celsius\n", fahrenheit, celsius);
+}
+
+void fahrenheitToKelvin(double fahrenheit) {
+    double celsius = (fahrenheit - 32) * 5 / 9;
+    double kelvin = celsius + 273.15;
+    printf("%.2f Fahrenheit is %.2f Kelvin\n", fahrenheit, kelvin);
+}
+
+void kelvinToCelsius(double kelvin) {
+    double celsius = kelvin - 273.15;
+    printf("%.2f Kelvin is %.2f Celsius\n", kelvin, celsius);
+}
+
+void kelvinToFahrenheit(double kelvin) {
+    double celsius = kelvin - 273.15;
+    double fahrenheit = (celsius * 9 / 5) + 32;
+    printf("%.2f Kelvin is %.2f Fahrenheit\n", kelvin, fahrenheit);
+}
+
+int main() {
+    int choice;
+    double temperature;
+
+    printf("Temperature Conversion Program\n");
+    printf("1. Celsius to Fahrenheit\n");
+    printf("2. Celsius to Kelvin\n");
+    printf("3. Fahrenheit to Celsius\n");
+    printf("4. Fahrenheit to Kelvin\n");
+    printf("5. Kelvin to Celsius\n");
+    printf("6. Kelvin to Fahrenheit\n");
+    printf("Enter your choice (1-6): ");
+    scanf("%d", &choice);
+
+    if (choice < 1 || choice > 6) {
+        printf("Invalid choice. Please run the program again and select a number between 1 and 6.\n");
+        return 1;
+    }
+
+    printf("Enter the temperature: ");
+    scanf("%lf", &temperature);
+
+    switch (choice) {
+        case 1:
+            celsiusToFahrenheit(temperature);
+            break;
+        case 2:
+            celsiusToKelvin(temperature);
+            break;
+        case 3:
+            fahrenheitToCelsius(temperature);
+            break;
+        case 4:
+            fahrenheitToKelvin(temperature);
+            break;
+        case 5:
+            kelvinToCelsius(temperature);
+            break;
+        case 6:
+            kelvinToFahrenheit(temperature);
+            break;
+    }
+
+    return 0;
+}
